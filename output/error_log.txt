@@ -1,0 +1,359 @@
+Making all in src
+  CXX      libbitcoin_server_a-checkpoints.o
+In file included from checkpoints.cpp:9:
+./validation.h:324:53: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                               ~~~~~^
+./validation.h:329:74: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, int64_t nAcceptTime, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                                                    ~~~~~^
+2 errors generated.
+make[2]: *** [libbitcoin_server_a-checkpoints.o] Error 1
+  CXX      libbitcoin_server_a-httpserver.o
+httpserver.cpp:71:10: error: no template named 'deque' in namespace 'std'
+    std::deque<std::unique_ptr<WorkItem>> queue;
+    ~~~~~^
+1 error generated.
+make[2]: *** [libbitcoin_server_a-httpserver.o] Error 1
+  CXX      libbitcoin_server_a-init.o
+In file included from init.cpp:57:
+/usr/local/include/boost/bind.hpp:36:1: warning: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior. [-W#pragma-messages]
+BOOST_PRAGMA_MESSAGE(
+^
+/usr/local/include/boost/config/pragma_message.hpp:24:34: note: expanded from macro 'BOOST_PRAGMA_MESSAGE'
+# define BOOST_PRAGMA_MESSAGE(x) _Pragma(BOOST_STRINGIZE(message(x)))
+                                 ^
+<scratch space>:24:2: note: expanded from here
+ message("The practice of declaring the Bind placeholders (_1, _2, ...) " "in the global namespace is deprecated. Please use " "<boost/bind/bind.hpp> + using namespace boost::placeholders, " "or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.")
+ ^
+In file included from init.cpp:13:
+./amount.h:47:5: warning: definition of implicit copy assignment operator for 'CFeeRate' is deprecated because it has a user-provided copy constructor [-Wdeprecated-copy-with-user-provided-copy]
+    CFeeRate(const CFeeRate& other) { nSatoshisPerK = other.nSatoshisPerK; }
+    ^
+init.cpp:960:29: note: in implicit copy assignment operator for 'CFeeRate' first required here
+        incrementalRelayFee = CFeeRate(n);
+                            ^
+In file included from init.cpp:10:
+In file included from ./init.h:9:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:549:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory:860:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:28:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:48:5: warning: delete called on non-final 'PeerLogicValidation' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+    delete __ptr;
+    ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:305:7: note: in instantiation of member function 'std::default_delete<PeerLogicValidation>::operator()' requested here
+      __ptr_.second()(__tmp);
+      ^
+init.cpp:208:15: note: in instantiation of member function 'std::unique_ptr<PeerLogicValidation>::reset' requested here
+    peerLogic.reset();
+              ^
+3 warnings generated.
+  CXX      libbitcoin_server_a-dbwrapper.o
+  CXX      libbitcoin_server_a-merkleblock.o
+  CXX      libbitcoin_server_a-miner.o
+In file included from miner.cpp:6:
+In file included from ./miner.h:9:
+In file included from ./primitives/block.h:9:
+In file included from ./primitives/transaction.h:9:
+./amount.h:47:5: warning: definition of implicit copy assignment operator for 'CFeeRate' is deprecated because it has a user-provided copy constructor [-Wdeprecated-copy-with-user-provided-copy]
+    CFeeRate(const CFeeRate& other) { nSatoshisPerK = other.nSatoshisPerK; }
+    ^
+miner.cpp:100:25: note: in implicit copy assignment operator for 'CFeeRate' first required here
+        blockMinFeeRate = CFeeRate(n);
+                        ^
+1 warning generated.
+  CXX      libbitcoin_server_a-net.o
+  CXX      libbitcoin_server_a-net_processing.o
+In file included from net_processing.cpp:6:
+In file included from ./net_processing.h:9:
+In file included from ./net.h:9:
+In file included from ./addrdb.h:9:
+In file included from ./serialize.h:17:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/set:675:30: warning: the specified comparator type does not provide a viable const call operator [-Wuser-defined-warnings]
+        static_assert(sizeof(__diagnose_non_const_comparator<_Key, _Compare>()), "");
+                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/pair.h:40:29: note: in instantiation of member function 'std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>::~set' requested here
+struct _LIBCPP_TEMPLATE_VIS pair
+                            ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree:1800:24: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::__tree_node<std::__value_type<COutPoint, std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>>, void *>>>::destroy<std::pair<const COutPoint, std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>>, void, void>' requested here
+        __node_traits::destroy(__na, _NodeTypes::__get_ptr(__nd->__value_));
+                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree:1788:3: note: in instantiation of member function 'std::__tree<std::__value_type<COutPoint, std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>>, std::__map_value_compare<COutPoint, std::__value_type<COutPoint, std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>>, std::less<COutPoint>, true>, std::allocator<std::__value_type<COutPoint, std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>>>>::destroy' requested here
+  destroy(__root());
+  ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map:1033:5: note: in instantiation of member function 'std::__tree<std::__value_type<COutPoint, std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>>, std::__map_value_compare<COutPoint, std::__value_type<COutPoint, std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>>, std::less<COutPoint>, true>, std::allocator<std::__value_type<COutPoint, std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>>>>::~__tree' requested here
+    map()
+    ^
+net_processing.cpp:57:91: note: in instantiation of member function 'std::map<COutPoint, std::set<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>>::map' requested here
+std::map<COutPoint, std::set<std::map<uint256, COrphanTx>::iterator, IteratorComparator>> mapOrphanTransactionsByPrev GUARDED_BY(cs_main);
+                                                                                          ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree:979:5: note: from 'diagnose_if' attribute on '__diagnose_non_const_comparator<std::__map_iterator<std::__tree_iterator<std::__value_type<uint256, COrphanTx>, std::__tree_node<std::__value_type<uint256, COrphanTx>, void *> *, long>>, IteratorComparator>':
+    _LIBCPP_DIAGNOSE_WARNING(!__invokable<_Compare const&, _Tp const&, _Tp const&>::value,
+    ^                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:1087:58: note: expanded from macro '_LIBCPP_DIAGNOSE_WARNING'
+#    define _LIBCPP_DIAGNOSE_WARNING(...) __attribute__((diagnose_if(__VA_ARGS__, "warning")))
+                                                         ^           ~~~~~~~~~~~
+1 warning generated.
+  CXX      libbitcoin_server_a-noui.o
+  CXX      policy/libbitcoin_server_a-fees.o
+In file included from policy/fees.cpp:6:
+In file included from ./policy/fees.h:8:
+./amount.h:47:5: warning: definition of implicit copy assignment operator for 'CFeeRate' is deprecated because it has a user-provided copy constructor [-Wdeprecated-copy-with-user-provided-copy]
+    CFeeRate(const CFeeRate& other) { nSatoshisPerK = other.nSatoshisPerK; }
+    ^
+policy/fees.cpp:305:19: note: in implicit copy assignment operator for 'CFeeRate' first required here
+    minTrackedFee = _minRelayFee < CFeeRate(MIN_FEERATE) ? CFeeRate(MIN_FEERATE) : _minRelayFee;
+                  ^
+1 warning generated.
+  CXX      policy/libbitcoin_server_a-policy.o
+In file included from policy/policy.cpp:10:
+./validation.h:324:53: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                               ~~~~~^
+./validation.h:329:74: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, int64_t nAcceptTime, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                                                    ~~~~~^
+2 errors generated.
+make[2]: *** [policy/libbitcoin_server_a-policy.o] Error 1
+  CXX      libbitcoin_server_a-pow.o
+  CXX      libbitcoin_server_a-rest.o
+In file included from rest.cpp:10:
+./validation.h:324:53: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                               ~~~~~^
+./validation.h:329:74: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, int64_t nAcceptTime, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                                                    ~~~~~^
+2 errors generated.
+make[2]: *** [libbitcoin_server_a-rest.o] Error 1
+  CXX      rpc/libbitcoin_server_a-blockchain.o
+In file included from rpc/blockchain.cpp:12:
+./validation.h:324:53: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                               ~~~~~^
+./validation.h:329:74: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, int64_t nAcceptTime, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                                                    ~~~~~^
+2 errors generated.
+make[2]: *** [rpc/libbitcoin_server_a-blockchain.o] Error 1
+  CXX      rpc/libbitcoin_server_a-mining.o
+  CXX      rpc/libbitcoin_server_a-misc.o
+  CXX      rpc/libbitcoin_server_a-net.o
+  CXX      rpc/libbitcoin_server_a-rawtransaction.o
+  CXX      rpc/libbitcoin_server_a-server.o
+In file included from rpc/server.cpp:18:
+/usr/local/include/boost/bind.hpp:36:1: warning: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior. [-W#pragma-messages]
+BOOST_PRAGMA_MESSAGE(
+^
+/usr/local/include/boost/config/pragma_message.hpp:24:34: note: expanded from macro 'BOOST_PRAGMA_MESSAGE'
+# define BOOST_PRAGMA_MESSAGE(x) _Pragma(BOOST_STRINGIZE(message(x)))
+                                 ^
+<scratch space>:44:2: note: expanded from here
+ message("The practice of declaring the Bind placeholders (_1, _2, ...) " "in the global namespace is deprecated. Please use " "<boost/bind/bind.hpp> + using namespace boost::placeholders, " "or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.")
+ ^
+1 warning generated.
+  CXX      script/libbitcoin_server_a-sigcache.o
+  CXX      script/libbitcoin_server_a-ismine.o
+  CXX      libbitcoin_server_a-timedata.o
+  CXX      libbitcoin_server_a-torcontrol.o
+In file included from torcontrol.cpp:18:
+/usr/local/include/boost/bind.hpp:36:1: warning: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior. [-W#pragma-messages]
+BOOST_PRAGMA_MESSAGE(
+^
+/usr/local/include/boost/config/pragma_message.hpp:24:34: note: expanded from macro 'BOOST_PRAGMA_MESSAGE'
+# define BOOST_PRAGMA_MESSAGE(x) _Pragma(BOOST_STRINGIZE(message(x)))
+                                 ^
+<scratch space>:166:2: note: expanded from here
+ message("The practice of declaring the Bind placeholders (_1, _2, ...) " "in the global namespace is deprecated. Please use " "<boost/bind/bind.hpp> + using namespace boost::placeholders, " "or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.")
+ ^
+1 warning generated.
+  CXX      libbitcoin_server_a-txdb.o
+  CXX      libbitcoin_server_a-txmempool.o
+In file included from txmempool.cpp:6:
+./txmempool.h:120:5: warning: definition of implicit copy assignment operator for 'CTxMemPoolEntry' is deprecated because it has a user-provided copy constructor [-Wdeprecated-copy-with-user-provided-copy]
+    CTxMemPoolEntry(const CTxMemPoolEntry& other);
+    ^
+txmempool.cpp:49:11: note: in implicit copy assignment operator for 'CTxMemPoolEntry' first required here
+    *this = other;
+          ^
+txmempool.cpp:663:22: warning: variable 'i' set but not used [-Wunused-but-set-variable]
+        unsigned int i = 0;
+                     ^
+txmempool.cpp:673:17: warning: variable 'parentSizes' set but not used [-Wunused-but-set-variable]
+        int64_t parentSizes = 0;
+                ^
+txmempool.cpp:674:17: warning: variable 'parentSigOpCost' set but not used [-Wunused-but-set-variable]
+        int64_t parentSigOpCost = 0;
+                ^
+In file included from txmempool.cpp:6:
+In file included from ./txmempool.h:16:
+./amount.h:47:5: warning: definition of implicit copy assignment operator for 'CFeeRate' is deprecated because it has a user-provided copy constructor [-Wdeprecated-copy-with-user-provided-copy]
+    CFeeRate(const CFeeRate& other) { nSatoshisPerK = other.nSatoshisPerK; }
+    ^
+txmempool.cpp:1119:27: note: in implicit copy assignment operator for 'CFeeRate' first required here
+        maxFeeRateRemoved = std::max(maxFeeRateRemoved, removed);
+                          ^
+5 warnings generated.
+  CXX      libbitcoin_server_a-ui_interface.o
+  CXX      libbitcoin_server_a-validation.o
+In file included from validation.cpp:6:
+./validation.h:324:53: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                               ~~~~~^
+./validation.h:329:74: error: no template named 'list' in namespace 'std'
+                        bool* pfMissingInputs, int64_t nAcceptTime, std::list<CTransactionRef>* plTxnReplaced = NULL,
+                                                                    ~~~~~^
+In file included from validation.cpp:46:
+In file included from /usr/local/include/boost/math/distributions/poisson.hpp:40:
+In file included from /usr/local/include/boost/math/special_functions/gamma.hpp:17:
+In file included from /usr/local/include/boost/math/tools/series.hpp:16:
+/usr/local/include/boost/math/tools/config.hpp:26:6: warning: "Boost.Math requires C++14" [-W#warnings]
+#    warning "Boost.Math requires C++14"
+     ^
+validation.cpp:173:111: error: use of undeclared identifier '_1'
+        pool.NotifyEntryRemoved.connect(boost::bind(&MemPoolConflictRemovalTracker::NotifyEntryRemoved, this, _1, _2));
+                                                                                                              ^
+validation.cpp:173:115: error: use of undeclared identifier '_2'
+        pool.NotifyEntryRemoved.connect(boost::bind(&MemPoolConflictRemovalTracker::NotifyEntryRemoved, this, _1, _2));
+                                                                                                                  ^
+validation.cpp:183:114: error: use of undeclared identifier '_1'
+        pool.NotifyEntryRemoved.disconnect(boost::bind(&MemPoolConflictRemovalTracker::NotifyEntryRemoved, this, _1, _2));
+                                                                                                                 ^
+validation.cpp:183:118: error: use of undeclared identifier '_2'
+        pool.NotifyEntryRemoved.disconnect(boost::bind(&MemPoolConflictRemovalTracker::NotifyEntryRemoved, this, _1, _2));
+                                                                                                                     ^
+1 warning and 6 errors generated.
+make[2]: *** [libbitcoin_server_a-validation.o] Error 1
+  CXX      libbitcoin_server_a-validationinterface.o
+validationinterface.cpp:16:102: error: use of undeclared identifier '_1'
+    g_signals.UpdatedBlockTip.connect(boost::bind(&CValidationInterface::UpdatedBlockTip, pwalletIn, _1, _2, _3));
+                                                                                                     ^
+validationinterface.cpp:16:106: error: use of undeclared identifier '_2'
+    g_signals.UpdatedBlockTip.connect(boost::bind(&CValidationInterface::UpdatedBlockTip, pwalletIn, _1, _2, _3));
+                                                                                                         ^
+validationinterface.cpp:16:110: error: use of undeclared identifier '_3'
+    g_signals.UpdatedBlockTip.connect(boost::bind(&CValidationInterface::UpdatedBlockTip, pwalletIn, _1, _2, _3));
+                                                                                                             ^
+validationinterface.cpp:17:102: error: use of undeclared identifier '_1'
+    g_signals.SyncTransaction.connect(boost::bind(&CValidationInterface::SyncTransaction, pwalletIn, _1, _2, _3));
+                                                                                                     ^
+validationinterface.cpp:17:106: error: use of undeclared identifier '_2'
+    g_signals.SyncTransaction.connect(boost::bind(&CValidationInterface::SyncTransaction, pwalletIn, _1, _2, _3));
+                                                                                                         ^
+validationinterface.cpp:17:110: error: use of undeclared identifier '_3'
+    g_signals.SyncTransaction.connect(boost::bind(&CValidationInterface::SyncTransaction, pwalletIn, _1, _2, _3));
+                                                                                                             ^
+validationinterface.cpp:18:108: error: use of undeclared identifier '_1'
+    g_signals.UpdatedTransaction.connect(boost::bind(&CValidationInterface::UpdatedTransaction, pwalletIn, _1));
+                                                                                                           ^
+validationinterface.cpp:19:96: error: use of undeclared identifier '_1'
+    g_signals.SetBestChain.connect(boost::bind(&CValidationInterface::SetBestChain, pwalletIn, _1));
+                                                                                               ^
+validationinterface.cpp:20:90: error: use of undeclared identifier '_1'
+    g_signals.Inventory.connect(boost::bind(&CValidationInterface::Inventory, pwalletIn, _1));
+                                                                                         ^
+validationinterface.cpp:21:105: error: use of undeclared identifier '_1'
+    g_signals.Broadcast.connect(boost::bind(&CValidationInterface::ResendWalletTransactions, pwalletIn, _1, _2));
+                                                                                                        ^
+validationinterface.cpp:21:109: error: use of undeclared identifier '_2'
+    g_signals.Broadcast.connect(boost::bind(&CValidationInterface::ResendWalletTransactions, pwalletIn, _1, _2));
+                                                                                                            ^
+validationinterface.cpp:22:96: error: use of undeclared identifier '_1'
+    g_signals.BlockChecked.connect(boost::bind(&CValidationInterface::BlockChecked, pwalletIn, _1, _2));
+                                                                                               ^
+validationinterface.cpp:22:100: error: use of undeclared identifier '_2'
+    g_signals.BlockChecked.connect(boost::bind(&CValidationInterface::BlockChecked, pwalletIn, _1, _2));
+                                                                                                   ^
+validationinterface.cpp:23:105: error: use of undeclared identifier '_1'
+    g_signals.ScriptForMining.connect(boost::bind(&CValidationInterface::GetScriptForMining, pwalletIn, _1));
+                                                                                                        ^
+validationinterface.cpp:24:99: error: use of undeclared identifier '_1'
+    g_signals.BlockFound.connect(boost::bind(&CValidationInterface::ResetRequestCount, pwalletIn, _1));
+                                                                                                  ^
+validationinterface.cpp:25:104: error: use of undeclared identifier '_1'
+    g_signals.NewPoWValidBlock.connect(boost::bind(&CValidationInterface::NewPoWValidBlock, pwalletIn, _1, _2));
+                                                                                                       ^
+validationinterface.cpp:25:108: error: use of undeclared identifier '_2'
+    g_signals.NewPoWValidBlock.connect(boost::bind(&CValidationInterface::NewPoWValidBlock, pwalletIn, _1, _2));
+                                                                                                           ^
+validationinterface.cpp:29:102: error: use of undeclared identifier '_1'
+    g_signals.BlockFound.disconnect(boost::bind(&CValidationInterface::ResetRequestCount, pwalletIn, _1));
+                                                                                                     ^
+validationinterface.cpp:30:108: error: use of undeclared identifier '_1'
+    g_signals.ScriptForMining.disconnect(boost::bind(&CValidationInterface::GetScriptForMining, pwalletIn, _1));
+                                                                                                           ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make[2]: *** [libbitcoin_server_a-validationinterface.o] Error 1
+  CXX      libbitcoin_server_a-versionbits.o
+  CXX      libbitcoin_common_a-amount.o
+  CXX      libbitcoin_common_a-base58.o
+  CXX      libbitcoin_common_a-chainparams.o
+  CXX      libbitcoin_common_a-coins.o
+  CXX      libbitcoin_common_a-compressor.o
+  CXX      libbitcoin_common_a-core_read.o
+  CXX      libbitcoin_common_a-core_write.o
+  CXX      libbitcoin_common_a-key.o
+  CXX      libbitcoin_common_a-keystore.o
+  CXX      libbitcoin_common_a-netaddress.o
+  CXX      libbitcoin_common_a-netbase.o
+  CXX      libbitcoin_common_a-protocol.o
+  CXX      libbitcoin_common_a-scheduler.o
+In file included from scheduler.cpp:10:
+/usr/local/include/boost/bind.hpp:36:1: warning: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior. [-W#pragma-messages]
+BOOST_PRAGMA_MESSAGE(
+^
+/usr/local/include/boost/config/pragma_message.hpp:24:34: note: expanded from macro 'BOOST_PRAGMA_MESSAGE'
+# define BOOST_PRAGMA_MESSAGE(x) _Pragma(BOOST_STRINGIZE(message(x)))
+                                 ^
+<scratch space>:69:2: note: expanded from here
+ message("The practice of declaring the Bind placeholders (_1, _2, ...) " "in the global namespace is deprecated. Please use " "<boost/bind/bind.hpp> + using namespace boost::placeholders, " "or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.")
+ ^
+1 warning generated.
+  CXX      script/libbitcoin_common_a-sign.o
+  CXX      script/libbitcoin_common_a-standard.o
+  CXX      libbitcoin_common_a-warnings.o
+  AR       libbitcoin_common.a
+  CXX      lib/libunivalue_la-univalue.lo
+  CXX      lib/libunivalue_la-univalue_read.lo
+  CXX      lib/libunivalue_la-univalue_write.lo
+  CXXLD    libunivalue.la
+  CXX      support/libbitcoin_util_a-lockedpool.o
+  CXX      libbitcoin_util_a-chainparamsbase.o
+  CXX      libbitcoin_util_a-clientversion.o
+  CXX      compat/libbitcoin_util_a-glibc_sanity.o
+  CXX      compat/libbitcoin_util_a-glibcxx_sanity.o
+  CXX      compat/libbitcoin_util_a-strnlen.o
+  CXX      libbitcoin_util_a-random.o
+  CXX      rpc/libbitcoin_util_a-protocol.o
+rpc/protocol.cpp:74:15: error: no member named 'is_complete' in 'boost::filesystem::path'
+    if (!path.is_complete()) path = GetDataDir() / path;
+         ~~~~ ^
+1 error generated.
+make[2]: *** [rpc/libbitcoin_util_a-protocol.o] Error 1
+  CXX      support/libbitcoin_util_a-cleanse.o
+  CXX      libbitcoin_util_a-sync.o
+  CXX      libbitcoin_util_a-threadinterrupt.o
+  CXX      libbitcoin_util_a-util.o
+util.cpp:554:25: error: no member named 'is_complete' in 'boost::filesystem::path'
+    if (!pathConfigFile.is_complete())
+         ~~~~~~~~~~~~~~ ^
+util.cpp:590:22: error: no member named 'is_complete' in 'boost::filesystem::path'
+    if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
+         ~~~~~~~~~~~ ^
+2 errors generated.
+make[2]: *** [libbitcoin_util_a-util.o] Error 1
+  CXX      libbitcoin_util_a-utilmoneystr.o
+  CXX      libbitcoin_util_a-utilstrencodings.o
+  CXX      libbitcoin_util_a-utiltime.o
+  CXX      wallet/libbitcoin_wallet_a-crypter.o
+  CXX      wallet/libbitcoin_wallet_a-db.o
+  CXX      wallet/libbitcoin_wallet_a-rpcdump.o
+  CXX      wallet/libbitcoin_wallet_a-rpcwallet.o
+In file included from wallet/rpcwallet.cpp:6:
+./amount.h:47:5: warning: definition of implicit copy assignment operator for 'CFeeRate' is deprecated because it has a user-provided copy constructor [-Wdeprecated-copy-with-user-provided-copy]
+    CFeeRate(const CFeeRate& other) { nSatoshisPerK = other.nSatoshisPerK; }
+    ^
+wallet/rpcwallet.cpp:2313:14: note: in implicit copy assignment operator for 'CFeeRate' first required here
+    payTxFee = CFeeRate(nAmount, 1000);
+             ^
