@@ -15,7 +15,7 @@ out collectively by the network. Froge Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Froge Core software, see [https://froge.org](https://froge.org).
+the Froge Core software, see [https://www.froge.biz](https://www.froge.biz).
 
 License
 -------
